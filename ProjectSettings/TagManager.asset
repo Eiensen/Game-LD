@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - AnamyRange
+  - Metall_Iron
   layers:
   - Default
   - TransparentFX
