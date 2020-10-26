@@ -14,7 +14,11 @@ public class PlayerCollision : MonoBehaviour
        
         if (collision.collider.tag == "Enemy")
         {
-            
+            Destroy(collision.gameObject);
+        }
+        if (collision.collider.tag == "Metall_Iron")
+        {
+            Destroy(collision.gameObject);
         }
     }
     
