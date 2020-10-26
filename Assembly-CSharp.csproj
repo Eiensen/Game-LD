@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\AngryEnemy.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\GatheringMetalls.cs" />
     <Compile Include="Assets\Scripts\IronController.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\PlayerCollision.cs" />

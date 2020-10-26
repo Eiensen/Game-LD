@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-   
+    public GatheringMetalls gathering_script;
 
    
 
@@ -18,6 +18,7 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.collider.tag == "Metall_Iron")
         {
+            gathering_script.IronCount++;
             Destroy(collision.gameObject);
         }
     }
