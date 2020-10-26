@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCollision : MonoBehaviour
 {
     public GatheringMetalls gathering_script;
+    public GameObject pickingUp;
+    public Animator animatorText;
 
    
 
@@ -18,9 +21,20 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.collider.tag == "Metall_Iron")
         {
-            gathering_script.IronCount++;
             Destroy(collision.gameObject);
+            StartCoroutine("AnimTextPanel");
+            animatorText.SetBool("Start", false);
+            pickingUp.SetActive(false);
         }
     }
-    
+    IEnumerator AnimTextPanel()
+    {
+        yield return new WaitForSeconds(0.5f);
+        int randCount = Random.Range(1, 4);
+        pickingUp.SetActive(true);
+        pickingUp.GetComponentInChildren<Text>().text = "+" + randCount.ToString();
+        animatorText.SetBool("Start", true);
+        gathering_script.IronCount += randCount;
+        
+    }
 }
