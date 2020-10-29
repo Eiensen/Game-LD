@@ -6,23 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
     public Rigidbody2D rb;
-    private float speed = 4f;
-    public Joystick joystick;
+    private float speed = 2f;
+    public Joystick joystickHor;
+    public Joystick joystickVert;
     Vector2 move;
 
     void Update()
     {
-        if(joystick.Horizontal >= 0.5f || joystick.Horizontal <= -0.5f)
+        if(joystickHor.Horizontal >= 0.5f || joystickHor.Horizontal <= -0.5f)
         {
-            move.x = joystick.Horizontal;
+            move.x = joystickHor.Horizontal;
         }
         else
         {
             move.x = 0f;
         }
-        if (joystick.Vertical >= 0.5f || joystick.Vertical <= -0.5f)
+        if (joystickVert.Vertical >= 0.5f || joystickVert.Vertical <= -0.5f)
         {            
-            move.y = joystick.Vertical;
+            move.y = joystickVert.Vertical;
         }
         else
         {
