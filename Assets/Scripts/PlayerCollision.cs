@@ -29,12 +29,13 @@ public class PlayerCollision : MonoBehaviour
     }
     IEnumerator AnimTextPanel()
     {
-        yield return new WaitForSeconds(0.5f);
+        
         int randCount = Random.Range(1, 4);
         pickingUp.SetActive(true);
         pickingUp.GetComponentInChildren<Text>().text = "+" + randCount.ToString();
         animatorText.SetBool("Start", true);
         gathering_script.IronCount += randCount;
-        
+        yield return new WaitForSeconds(0.5f);
+
     }
 }
