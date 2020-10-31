@@ -8,12 +8,13 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     private Joystick joystick;
-
+    private GameObject mainPanel;
    
 
     private void Start()
     {
         joystick = FindObjectOfType<Joystick>();
+        mainPanel = GameObject.Find("MainPnl");
     }
 
     public void TriggerDialogue()
@@ -30,6 +31,7 @@ public class DialogueTrigger : MonoBehaviour
                 Destroy(gameObject);
             }
             joystick.OnPointerUp(null);
+            mainPanel.SetActive(false);
             TriggerDialogue();
         }
     }
