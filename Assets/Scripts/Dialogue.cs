@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
+    public bool isDestroyable;
     public string name;
 
     [TextArea(3, 10)]
