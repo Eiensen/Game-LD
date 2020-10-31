@@ -21,21 +21,24 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.collider.tag == "Metall_Iron")
         {
-            Destroy(collision.gameObject);
-            StartCoroutine("AnimTextPanel");
-            animatorText.SetBool("Start", false);
-            pickingUp.SetActive(false);
+            int randCount = Random.Range(1, 4);
+           
+            pickingUp.GetComponentInChildren<Text>().text = "+" + randCount.ToString();
+            pickingUp.SetActive(true);
+            StopAllCoroutines();
+            StartCoroutine(PickUpAnim());
+            //animatorText.SetBool("Start", true);
+            gathering_script.IronCount += randCount;
+            Destroy(collision.gameObject);           
+            //animatorText.SetBool("Start", false);
+            
         }
     }
-    IEnumerator AnimTextPanel()
+    IEnumerator PickUpAnim()
     {
-        
-        int randCount = Random.Range(1, 4);
-        pickingUp.SetActive(true);
-        pickingUp.GetComponentInChildren<Text>().text = "+" + randCount.ToString();
         animatorText.SetBool("Start", true);
-        gathering_script.IronCount += randCount;
         yield return new WaitForSeconds(0.5f);
-
+        animatorText.SetBool("Start", false);
+        pickingUp.SetActive(false);
     }
 }

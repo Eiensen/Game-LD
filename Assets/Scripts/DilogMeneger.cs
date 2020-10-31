@@ -41,7 +41,17 @@ public class DilogMeneger : MonoBehaviour
             return;
         }
         string sent = sentences.Dequeue();
-        dialogueText.text = sent;
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(sent));
+    }
+    IEnumerator TypeSentence(string sentence)
+    {
+        dialogueText.text = "";
+        foreach ( char letter in sentence.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return null;
+        }
     }
 
     private void EndDialogue()
