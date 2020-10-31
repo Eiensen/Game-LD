@@ -8,6 +8,7 @@ public class DilogMeneger : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
+    public GameObject joystickPanel;
 
     private Queue<string> sentences;
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class DilogMeneger : MonoBehaviour
     
     public void StartDialogue (Dialogue dialogue)
     {
+        joystickPanel.SetActive(false);
         animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
 
@@ -45,5 +47,6 @@ public class DilogMeneger : MonoBehaviour
     private void EndDialogue()
     {
         animator.SetBool("isOpen", false);
+        joystickPanel.SetActive(true);
     }
 }
