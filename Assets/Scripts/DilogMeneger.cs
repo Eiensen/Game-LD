@@ -7,7 +7,7 @@ public class DilogMeneger : MonoBehaviour
 {
     public Text nameText;
     public Text dialogueText;
-
+    public Animator animator;
 
     private Queue<string> sentences;
     // Start is called before the first frame update
@@ -18,6 +18,7 @@ public class DilogMeneger : MonoBehaviour
     
     public void StartDialogue (Dialogue dialogue)
     {
+        animator.SetBool("isOpen", true);
         nameText.text = dialogue.name;
 
         sentences.Clear();
@@ -43,6 +44,6 @@ public class DilogMeneger : MonoBehaviour
 
     private void EndDialogue()
     {
-        Debug.Log("next");
+        animator.SetBool("isOpen", false);
     }
 }
