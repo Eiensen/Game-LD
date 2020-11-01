@@ -2,23 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
+
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public Sprite characterImage;
     public Dialogue dialogue;
     private Joystick joystick;
     private GameObject mainPanel;
+    private Image characterImagePanel;
    
 
     private void Start()
     {
+        characterImagePanel = GameObject.Find("CharacterImage").GetComponent<Image>();
         joystick = FindObjectOfType<Joystick>();
         mainPanel = GameObject.Find("MainPnl");
+        
     }
 
     public void TriggerDialogue()
     {
+        characterImagePanel.sprite = characterImage;
         FindObjectOfType<DilogMeneger>().StartDialogue(dialogue);
     }
 

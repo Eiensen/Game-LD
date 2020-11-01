@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DilogMeneger : MonoBehaviour
 {
+    public Image charImg;
     public Text nameText;
     public Text dialogueText;
     public Animator animator;
