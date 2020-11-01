@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
-//using UnityEngine.UIElements;
 using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour

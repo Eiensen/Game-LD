@@ -275,8 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3749556731643650669}
   rb: {fileID: 4455566627146476392}
-  joystickHor: {fileID: 0}
-  joystickVert: {fileID: 0}
+  joystick: {fileID: 0}
 --- !u!50 &4455566627146476392
 Rigidbody2D:
   serializedVersion: 4
