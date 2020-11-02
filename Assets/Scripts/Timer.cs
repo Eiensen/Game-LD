@@ -7,16 +7,29 @@ public class Timer : MonoBehaviour
 {
     public float timeStart = 20;
     public Text timerText;
-    // Start is called before the first frame update
-    void Start()
+    private bool isStarting = false;
+    
+    public void StartTimer()
     {
         timerText.text = timeStart.ToString();
+        isStarting = true;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        timeStart -= Time.deltaTime;
-        timerText.text = Mathf.Round(timeStart).ToString();
+        if (isStarting)
+        {
+            timeStart -= Time.deltaTime;
+            timerText.text = Mathf.Round(timeStart).ToString();
+        }        
+    }
+    public bool EndTimer()
+    {
+        if(timeStart == 0)
+        {
+            isStarting = false;
+        }
+        return isStarting;
     }
 }

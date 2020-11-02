@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    
     public Sprite characterImage;
     public Dialogue dialogue;
     private Joystick joystick;
     private GameObject mainPanel;
     private Image characterImagePanel;
-   
+    
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class DialogueTrigger : MonoBehaviour
         mainPanel = GameObject.Find("MainPnl");
         
     }
+    
 
     public void TriggerDialogue()
     {
@@ -31,13 +33,25 @@ public class DialogueTrigger : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
+            
+            joystick.OnPointerUp(null);
+            mainPanel.SetActive(false);
+            TriggerDialogue();
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
             if (dialogue.isDestroyable)
             {
                 Destroy(gameObject);
             }
-            joystick.OnPointerUp(null);
-            mainPanel.SetActive(false);
-            TriggerDialogue();
+            if (dialogue.isMissionNeed)
+            {
+                dialogue.gameObjectWithMission.SetActive(true);
+            }
+            
         }
     }
 }

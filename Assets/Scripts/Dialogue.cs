@@ -6,6 +6,9 @@ using UnityEngine;
 public class Dialogue
 {
     public bool isDestroyable;
+    public bool isMissionNeed;
+   
+    public GameObject gameObjectWithMission;
     public string name;
 
     [TextArea(3, 10)]
