@@ -48,7 +48,7 @@ public class DialogueTrigger : MonoBehaviour
                 Destroy(gameObject);
             }
             if (dialogue.isMissionNeed)
-            {
+            {               
                 dialogue.gameObjectWithMission.SetActive(true);
             }
             
