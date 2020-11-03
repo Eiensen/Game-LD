@@ -21,17 +21,15 @@ public class PlayerCollision : MonoBehaviour
         }
         if (collision.collider.tag == "Metall_Iron")
         {
-            int randCount = Random.Range(1, 4);
+            int randCount = Random.Range(1, 3);
            
             pickingUp.GetComponentInChildren<Text>().text = "+" + randCount.ToString();
             pickingUp.SetActive(true);
             StopAllCoroutines();
             StartCoroutine(PickUpAnim());
-            //animatorText.SetBool("Start", true);
+           
             gathering_script.IronCount += randCount;
-            Destroy(collision.gameObject);           
-            //animatorText.SetBool("Start", false);
-            
+            Destroy(collision.gameObject);            
         }
     }
     IEnumerator PickUpAnim()

@@ -9,17 +9,14 @@ public class DialogueTrigger : MonoBehaviour
     
     public Sprite characterImage;
     public Dialogue dialogue;
-    private Joystick joystick;
-    private GameObject mainPanel;
+    private UIManager _UIManager;
     private Image characterImagePanel;
     
 
     private void Start()
     {
+        _UIManager = GameObject.Find("UIManager").GetComponent<UIManager>();
         characterImagePanel = GameObject.Find("CharacterImage").GetComponent<Image>();
-        joystick = FindObjectOfType<Joystick>();
-        mainPanel = GameObject.Find("MainPnl");
-        
     }
     
 
@@ -34,8 +31,8 @@ public class DialogueTrigger : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             
-            joystick.OnPointerUp(null);
-            mainPanel.SetActive(false);
+            _UIManager.joystick.OnPointerUp(null);
+            _UIManager.MainUIPanelSetInactive();
             TriggerDialogue();
         }
     }

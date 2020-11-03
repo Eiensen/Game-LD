@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\DialogueTrigger.cs" />
     <Compile Include="Assets\Scripts\DilogMeneger.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\ExitButtonFromCabin.cs" />
     <Compile Include="Assets\Scripts\GatheringMetalls.cs" />
     <Compile Include="Assets\Scripts\IronController.cs" />
     <Compile Include="Assets\Scripts\IronMove.cs" />

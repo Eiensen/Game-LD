@@ -19,5 +19,6 @@ public class TransitionTrigger : MonoBehaviour
         FindObjectOfType<Transitions>().StartTransition(endPoint);
         _UIManager.ResultPanelSetInacrive();
         _UIManager.MainUIPanelSetActiv();
+        _UIManager.ReturnButtonSetInacrive();
     }
 }

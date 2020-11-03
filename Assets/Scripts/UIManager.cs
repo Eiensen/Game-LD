@@ -5,6 +5,7 @@ public class UIManager : MonoBehaviour
     public GameObject MainUIPanel;
     public GameObject ResultPanel;
     public Joystick joystick;
+    public GameObject returnButton;
 
     public void MainUIPanelSetActiv()
     {
@@ -28,5 +29,16 @@ public class UIManager : MonoBehaviour
     {
         if (ResultPanel.activeInHierarchy)
             ResultPanel.SetActive(false);
+    }
+    public void ReturnButtonSetActive()
+    {
+        if (!returnButton.activeInHierarchy)
+            returnButton.SetActive(true);
+    }
+
+    public void ReturnButtonSetInacrive()
+    {
+        if (returnButton.activeInHierarchy)
+            returnButton.SetActive(false);
     }
 }
