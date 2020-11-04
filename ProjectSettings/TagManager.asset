@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Metall_Iron
+  - Metall_Coper
   layers:
   - Default
   - TransparentFX

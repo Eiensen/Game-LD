@@ -7,7 +7,7 @@ public class SpawnLeftCabin : MonoBehaviour
     public Transform[] spawnTransforms;
     public GameObject timerObject;
     private Timer timer;
-    public GameObject ironPfefab;    
+    public GameObject[] metallPfefabs;    
 
     public GameObject resultMission;
     
@@ -23,7 +23,7 @@ public class SpawnLeftCabin : MonoBehaviour
         {
             timerObject.SetActive(true);
         }
-        timer.SetTimerTime(20);
+        timer.SetTimerTime(120);
         timer.StartTimer();
         StartCoroutine(SpawnIron());
     }
@@ -31,7 +31,7 @@ public class SpawnLeftCabin : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timer.IsTimeOut())
+        if (timer.GetIsTimeOut())
         {
             gameObject.SetActive(false);
         }
@@ -45,9 +45,9 @@ public class SpawnLeftCabin : MonoBehaviour
     IEnumerator SpawnIron()
     {
        
-        timeRespawn = Random.Range(0.2f, 2f);
+        timeRespawn = Random.Range(0.2f, 2f);        
         yield return new WaitForSeconds(timeRespawn);        
-        Instantiate(ironPfefab, spawnTransforms[Random.Range(0, 5)].position, Quaternion.identity);
+        Instantiate(metallPfefabs[Random.Range(0, metallPfefabs.Length)], spawnTransforms[Random.Range(0, 5)].position, Quaternion.identity);
         
 
         Repeat();

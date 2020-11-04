@@ -7,7 +7,8 @@ public class Timer : MonoBehaviour
     private float timeStart;
     public Text timerText;
     private bool isStarting = false;
-    private bool isTimeOut = false;
+    public bool IsTimeOut { get; set; } = false;
+   
     public UIManager _UIManager;
 
     private void Start()
@@ -30,7 +31,7 @@ public class Timer : MonoBehaviour
         {
             StartCoroutine(RunTimer());
         }
-        if (isTimeOut)
+        if (IsTimeOut)
         {
             _UIManager.joystick.OnPointerUp(null);
             _UIManager.MainUIPanelSetInactive();
@@ -39,9 +40,9 @@ public class Timer : MonoBehaviour
         }
 
     }   
-    public bool IsTimeOut()
+    public bool GetIsTimeOut()
     {
-        return isTimeOut;
+        return IsTimeOut;
     }
     IEnumerator RunTimer()
     {
@@ -53,7 +54,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            isTimeOut = true;
+            IsTimeOut = true;
         }
             
     }

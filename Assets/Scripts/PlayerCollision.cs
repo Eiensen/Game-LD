@@ -8,7 +8,7 @@ public class PlayerCollision : MonoBehaviour
     public GatheringMetalls gathering_script;
     public GameObject pickingUp;
     public Animator animatorText;
-
+    public Timer timer;
    
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -19,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-        if (collision.collider.tag == "Metall_Iron")
+        if (collision.collider.tag == "Metall_Coper")
         {
             int randCount = Random.Range(1, 3);
            
@@ -30,6 +30,11 @@ public class PlayerCollision : MonoBehaviour
            
             gathering_script.IronCount += randCount;
             Destroy(collision.gameObject);            
+        }
+        if(collision.collider.tag == "Metall_Iron")
+        {
+            Destroy(collision.gameObject);
+            timer.IsTimeOut = true;
         }
     }
     IEnumerator PickUpAnim()
